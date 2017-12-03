@@ -3,6 +3,7 @@ package com.didihe1988.rscode.coder;
 import com.didihe1988.rscode.math.GF256;
 import com.didihe1988.rscode.math.Polynomial;
 
+
 /**
  * Created by didihe1988 on 15-4-25.
  */
@@ -25,7 +26,7 @@ public class RSCode {
 	/**
 	 * 构造函数 默认为RS(223,255)
 	 */
-    RSCode() {
+    protected RSCode() {
 		// TODO Auto-generated constructor stub
     	this(255, 223);
 	}
