@@ -1,3 +1,66 @@
+# My modify part source code and add the interface and implemention of dealing with byte array 
+I read the source code of this great job, trying to modify a small part of the code. And on the basis of this excellent work, we add the interface and implementation of processing byte array, so that we can make the code applied to more scenes such as network data transmission, data storage and so on.
+
+我阅读了这个很棒的工作的源码，试着修改了小部分代码。并且在这个卓越工作的基础上，增加了处理字节数组的接口和实现，这样我们就能使该代码应用于网络数据传输、数据存储等更多的场景。
+
+# example 
+  
+    public class RSErrorCorrectionImpl implements IRSErrorCorrection {
+
+	
+	private RSEncoder encoder=new RSEncoder();
+
+	private RSDecoder decoder=new RSDecoder();
+	
+	public static Boolean isCanBeRecovered=true;
+	
+	private byte[] temp=new byte[233];
+	
+	private ByteBuffer buffer=new ByteBuffer() ;
+	
+	private byte[] enTemp=new byte[255];
+	
+	public byte[] rs_encode(byte[] data) {
+		return encoder.encode(data);
+	}
+
+	public int rs_decode(byte[] recover, byte[] rsData) {
+		byte[] result = null;
+		result=decoder.decode(rsData);
+		
+		if(!isCanBeRecovered){
+			return 1;
+		}
+		System.arraycopy(result, 0, recover, 0, result.length);
+		return 0;
+	}
+	
+	public static void main(String[] args){
+		
+		byte[] src=new byte[223];
+		for(int i=0;i<223;i++){
+			src[i]=(byte) new Random().nextInt(255);
+		}
+		byte[] srcdouble=new byte[446];
+		for(int i=0;i<2;i++){
+			System.arraycopy(src, 0, srcdouble, i*223, 223);
+		}
+		
+		IRSErrorCorrection error = new RSErrorCorrectionImpl();
+		byte[] en_data=error.rs_encode(srcdouble);
+		
+		//Deliberately mistaken the values of several data(故意弄错几个数据的值)
+		en_data[0]=0;
+		en_data[1]=4;
+		en_data[3]=0;
+		//byte[] recover = new byte[src.length];
+		byte[] recover = new byte[srcdouble.length];
+		int flag = error.rs_decode(recover,en_data);
+		
+        
+        System.out.println("completion of the test！！！");
+	}
+
 # Reed-Solomon-error-correction
 Reed–Solomon error correction in java, providing RS(255,223) encode and decode method.
 
