@@ -1,4 +1,4 @@
-# My modify part source code and add the interface and implemention of dealing with byte array 
+# I modify part source code and add the interface and implemention of dealing with byte array 
 I read the source code of this great job, trying to modify a small part of the code. And on the basis of this excellent work, we add the interface and implementation of processing byte array, so that we can make the code applied to more scenes such as network data transmission, data storage and so on.
 
 我阅读了这个很棒的工作的源码，试着修改了小部分代码。并且在这个卓越工作的基础上，增加了处理字节数组的接口和实现，这样我们就能使该代码应用于网络数据传输、数据存储等更多的场景。
