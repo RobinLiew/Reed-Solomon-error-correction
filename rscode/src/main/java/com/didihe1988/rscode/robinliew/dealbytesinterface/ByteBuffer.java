@@ -1,12 +1,3 @@
-/*
- * 文件名：ByteBuffer.java
- * 版权：Copyright 2000-2013 Sumavision. All Rights Reserved. 
- * 描述：
- * 修改人: ManerFan
- * 修改时间：2014年12月8日
- * 修改内容：初次生成
- *
- */
 package com.didihe1988.rscode.robinliew.dealbytesinterface;
 
 import java.util.Arrays;
