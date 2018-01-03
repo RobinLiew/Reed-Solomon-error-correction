@@ -8,8 +8,6 @@ import org.springframework.util.Assert;
 
 /**
  * <p>自动增加长度的byte缓冲
- *
- * @author ManerFan 2014年12月8日
  */
 public class ByteBuffer {
 
